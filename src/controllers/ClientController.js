@@ -1,7 +1,6 @@
 const connection = require('../database/connection');
 const crypto = require('crypto'); //Usei o crypto para criar um ID aleatório.
 
-
 module.exports = {
   async list(request, response){
     const clients = await connection('clients').select('*');
