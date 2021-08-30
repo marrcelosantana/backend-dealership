@@ -9,6 +9,7 @@ routes.post('/sessions', SessionController.create);
 
 routes.get('/clients', ClientController.list);
 routes.post('/clients', ClientController.create);
+routes.delete('/clients/:id', ClientController.delete);
 
 routes.get('/cars', CarController.list);
 routes.post('/cars', CarController.create);

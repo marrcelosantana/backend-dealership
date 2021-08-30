@@ -10,11 +10,14 @@ module.exports = {
 
   async create(request, response){
     const { name, age, city, uf } = request.body;
-
     const id = crypto.randomBytes(2).toString('HEX');
-
     await connection('clients').insert({ id, name, age, city, uf });
-
     return response.json({ id });
   },
+
+  async delete(request, response){
+    const { id } = request.params;
+    await connection('clients').where('id', id).delete();
+    return response.status(204).send();
+  }
 }
